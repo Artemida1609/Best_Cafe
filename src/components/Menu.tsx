@@ -35,7 +35,7 @@ const imageMap: Record<string, string> = {
 };
 
 export default function Menu() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });

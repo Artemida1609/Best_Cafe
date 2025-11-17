@@ -43,7 +43,7 @@ export default function Contact() {
     },
   });
 
-  const onSubmit = (data: BookingForm) => {
+  const onSubmit = (_data: BookingForm) => {
     // Simulate form submission
     setTimeout(() => {
       toast({
