@@ -1,0 +1,139 @@
+{
+  "nav": {
+    "home": "Domov",
+    "about": "O nás",
+    "menu": "Ponuka",
+    "gallery": "Galéria",
+    "contact": "Kontakt",
+    "book": "Rezervovať"
+  },
+  "hero": {
+    "title": "Best Cafe",
+    "tagline": "Kde každý šálok je umenie",
+    "viewMenu": "Zobraziť ponuku",
+    "bookTable": "Rezervovať stôl"
+  },
+  "about": {
+    "title": "Náš príbeh",
+    "paragraph1": "V srdci mesta, kde sa tradícia stretáva s modernosťou, sme vytvorili priestor, kde každý šálok kávy je cestou do sveta chuti a arómy.",
+    "paragraph2": "Naši baristi sú skutoční majstri svojho remesla, vyberajú najlepšie zrná z celého sveta a pripravujú každý nápoj s láskou a pozornosťou k detailom.",
+    "paragraph3": "Veríme, že kaviareň nie je len miesto na kávu. Je to priestor pre stretnutia, inšpiráciu a momenty pokoja vo vašom rušnom dni."
+  },
+  "menu": {
+    "title": "Naša ponuka",
+    "subtitle": "Vyberte si z nášho sortimentu najlepších nápojov a dezertov",
+    "all": "Všetko",
+    "coffee": "Káva",
+    "desserts": "Dezerty",
+    "pastries": "Pečivo",
+    "drinks": "Nápoje",
+    "empty": "V tejto kategórii nie sú žiadne položky",
+    "items": {
+      "cappuccino": {
+        "name": "Cappuccino",
+        "description": "Klasické talianske cappuccino s jemnou mliečnou penou a krásnym latte art"
+      },
+      "espresso": {
+        "name": "Espresso",
+        "description": "Bohaté a aromatické dvojité espresso s hustou cremou"
+      },
+      "coldbrew": {
+        "name": "Cold Brew",
+        "description": "Osviežujúci studený kávový nápoj s ľadom a smotanou"
+      },
+      "matcha": {
+        "name": "Matcha Latte",
+        "description": "Japonský zelený čaj matcha s našľahaným mliekom"
+      },
+      "tiramisu": {
+        "name": "Tiramisu",
+        "description": "Klasický taliansky dezert s mascarpone a kávovým namáčaním"
+      },
+      "cheesecake": {
+        "name": "Cheesecake s bobuľami",
+        "description": "Jemný New York cheesecake s omáčkou z lesných bobúľ"
+      },
+      "brownie": {
+        "name": "Čokoládový brownie",
+        "description": "Bohatý čokoládový brownie s lesklým ganache"
+      },
+      "croissant": {
+        "name": "Croissant",
+        "description": "Čerstvý francúzsky croissant s chrumkavou kôrkou a maslovými vrstvami"
+      },
+      "cinnamon": {
+        "name": "Škorica rolka",
+        "description": "Nadýchaná škorica rolka s krémovou polevou"
+      },
+      "muffin": {
+        "name": "Čučoriedkový muffin",
+        "description": "Domáci muffin so sviežimi čučoriedkami a chrumkavou posýpkou"
+      },
+      "orange": {
+        "name": "Čerstvý pomarančový džús",
+        "description": "100% prírodný čerstvý pomarančový džús"
+      },
+      "avocado": {
+        "name": "Avokádový toast",
+        "description": "Chrumkavý toast s avokádom, pošírovaným vajcom a mikrozeleninou"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Galéria",
+    "subtitle": "Ponorte sa do atmosféry našej kaviarne"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Navštívte nás alebo rezervujte stôl",
+    "booking": {
+      "title": "Rezervovať stôl",
+      "name": "Meno",
+      "namePlaceholder": "Vaše meno",
+      "phone": "Telefón",
+      "phonePlaceholder": "+421 XXX XXX XXX",
+      "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "date": "Dátum",
+      "time": "Čas",
+      "guests": "Hostia",
+      "message": "Správa (voliteľné)",
+      "messagePlaceholder": "Ďalšie priania...",
+      "submit": "Rezervovať",
+      "submitting": "Odosielanie...",
+      "success": {
+        "title": "Rezervácia úspešná!",
+        "description": "Čoskoro vás budeme kontaktovať na potvrdenie."
+      },
+      "errors": {
+        "name": "Meno musí obsahovať aspoň 2 znaky",
+        "phone": "Zadajte platné telefónne číslo",
+        "email": "Zadajte platnú emailovú adresu",
+        "date": "Vyberte dátum",
+        "time": "Vyberte čas",
+        "guests": "Minimálne 1 hosť, maximálne 20 hostí"
+      }
+    },
+    "info": {
+      "address": "Adresa",
+      "addressValue": "Khreshchatyk St, 15, Kyiv, 01001",
+      "phone": "Telefón",
+      "email": "Email",
+      "hours": "Otváracie hodiny",
+      "weekdays": "Po-Pi: 08:00 - 22:00",
+      "weekend": "So-Ne: 09:00 - 23:00"
+    }
+  },
+  "footer": {
+    "description": "Prémiová kaviareň v srdci Kyjeva. Vytvárame nezabudnuteľné momenty pre každého nášho hosta.",
+    "navigation": "Navigácia",
+    "follow": "Sledujte nás",
+    "copyright": "© {{year}} Best Cafe. Všetky práva vyhradené."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Stránka sa nenašla",
+    "back": "Späť na domov"
+  }
+}
+
