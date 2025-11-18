@@ -153,6 +153,9 @@ export default function Navigation() {
                   <DropdownMenuItem onClick={() => changeLanguage("en")}>
                     English
                   </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => changeLanguage("uk")}>
+                    Українська
+                  </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => changeLanguage("sk")}>
                     Slovenčina
                   </DropdownMenuItem>
@@ -200,6 +203,9 @@ export default function Navigation() {
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem onClick={() => changeLanguage("en")}>
                     English
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => changeLanguage("uk")}>
+                    Українська
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => changeLanguage("sk")}>
                     Slovenčina
