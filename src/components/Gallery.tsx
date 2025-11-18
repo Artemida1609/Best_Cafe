@@ -36,7 +36,8 @@ export default function Gallery() {
   const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  // Use smaller threshold for mobile devices
+  const isInView = useInView(ref, { once: true, amount: 0.1, margin: "-50px" });
 
   const openModal = (index: number) => {
     setSelectedImage(index);
@@ -80,14 +81,14 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-background" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="gallery" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-background min-h-[400px] relative z-10" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4" data-testid="text-gallery-title">
             {t("gallery.title")}
@@ -101,8 +102,8 @@ export default function Gallery() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6"
+          animate={isInView ? "visible" : "visible"}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6"
         >
           {galleryImages.map((image, index) => (
             <motion.div

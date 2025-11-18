@@ -38,7 +38,8 @@ export default function Menu() {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  // Use smaller threshold for mobile devices
+  const isInView = useInView(ref, { once: true, amount: 0.1, margin: "-50px" });
 
   const categories = [
     { key: "all", label: t("menu.all") },
@@ -83,14 +84,14 @@ export default function Menu() {
   };
 
   return (
-    <section id="menu" className="py-24 md:py-32 bg-card" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="menu" className="py-12 sm:py-16 md:py-24 lg:py-32 bg-card min-h-[400px] relative z-10" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4" data-testid="text-menu-title">
             {t("menu.title")}
@@ -103,16 +104,16 @@ export default function Menu() {
         {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12"
         >
           {categories.map((category) => (
             <Button
               key={category.key}
               variant={selectedCategory === category.key ? "default" : "outline"}
               onClick={() => setSelectedCategory(category.key)}
-              className="px-6 py-2 text-base"
+              className="px-4 sm:px-6 py-2 text-sm sm:text-base"
               data-testid={`button-category-${category.key}`}
             >
               {category.label}
@@ -129,8 +130,8 @@ export default function Menu() {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            animate={isInView ? "visible" : "visible"}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           >
             {filteredItems.map((item) => (
               <motion.div key={item.id} variants={itemVariants}>

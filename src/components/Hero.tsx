@@ -7,6 +7,7 @@ import heroImage from "@assets/generated_images/Cozy_coffee_shop_interior_hero_7
 export default function Hero() {
   const { t } = useTranslation();
   const [scrollY, setScrollY] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,18 @@ export default function Hero() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Preload image immediately on mount
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageLoaded(true); // Show content even if image fails
+    // Force high priority loading
+    if ('fetchPriority' in img) {
+      (img as any).fetchPriority = 'high';
+    }
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -27,13 +40,33 @@ export default function Hero() {
   return (
     <section id="home" className="relative h-screen overflow-hidden">
       {/* Parallax Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          transform: `translateY(${scrollY * 0.5}px)`,
-        }}
-      >
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Optimized image with eager loading and high priority */}
+        <img
+          src={heroImage}
+          alt="Cozy coffee shop interior"
+          loading="eager"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            willChange: "transform",
+          }}
+          onLoad={() => setImageLoaded(true)}
+          decoding="async"
+        />
+        {/* Blur placeholder while loading - shows immediately */}
+        {!imageLoaded && (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${heroImage})`,
+              filter: "blur(20px) brightness(0.4)",
+              transform: "scale(1.1)",
+            }}
+          />
+        )}
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       </div>
