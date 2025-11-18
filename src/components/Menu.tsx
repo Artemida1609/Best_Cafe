@@ -35,11 +35,14 @@ const imageMap: Record<string, string> = {
 };
 
 export default function Menu() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const ref = useRef(null);
   // Use smaller threshold for mobile devices
   const isInView = useInView(ref, { once: true, amount: 0.1, margin: "-50px" });
+  
+  // Check if current language is Ukrainian
+  const isUkrainian = i18n.language === 'uk';
 
   const categories = [
     { key: "all", label: t("menu.all") },
@@ -151,7 +154,10 @@ export default function Menu() {
                         {t(`menu.items.${item.image}.name`)}
                       </h3>
                       <span className="font-bold text-primary text-lg whitespace-nowrap" data-testid={`text-menu-price-${item.id}`}>
-                        {item.priceEUR?.toFixed(2) || (item.price / 48.98).toFixed(2)} €
+                        {isUkrainian 
+                          ? `${item.price} ₴`
+                          : `${item.priceEUR?.toFixed(2) || (item.price / 48.98).toFixed(2)} €`
+                        }
                       </span>
                     </div>
                     <p className="text-muted-foreground leading-relaxed" data-testid={`text-menu-description-${item.id}`}>
